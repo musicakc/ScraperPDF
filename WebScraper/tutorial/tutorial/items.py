@@ -8,10 +8,12 @@
 import scrapy
 from scrapy.Item import Item,Field
 
-class TutorialItem(scrapy.Item):
+class PDFItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
 	title=Field()
 	link=Field()
 	desc=Field()
+	pdf_urls=Field()
+	files=Field()
     pass
