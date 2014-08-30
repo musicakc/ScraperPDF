@@ -8,7 +8,7 @@
 import scrapy
 from scrapy.Item import Item,Field
 
-class PDFItem(scrapy.Item):
+class PDFItem(Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
 	title=Field()
@@ -16,4 +16,4 @@ class PDFItem(scrapy.Item):
 	desc=Field()
 	pdf_urls=Field()
 	files=Field()
-    pass
+    

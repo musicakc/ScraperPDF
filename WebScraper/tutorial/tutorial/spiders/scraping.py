@@ -1,6 +1,5 @@
-from __future__ import absolute_import
 from scrapy.selector import HtmlXPathSelector
-from scrapy.item import Items
+from scrapy.spider import Spider
 from tutorial.items import PDFItem
 
 
