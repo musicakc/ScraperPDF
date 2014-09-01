@@ -12,9 +12,9 @@ BOT_NAME = 'cs229'
 
 SPIDER_MODULES = ['cs229.spiders']
 NEWSPIDER_MODULE = 'cs229.spiders'
-'''ITEM_PIPELINES = [
-    'cs229.files.FilesPipeline',
-]'''
+ITEM_PIPELINES = {
+    'scrapy.contrib.pipeline.files.FilesPipeline':1
+}
 FILES_STORE = '/home/amitoj/Projects/Scrapy/PDFScraper/cs229/cs229/downloads'
 
 
