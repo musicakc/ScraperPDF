@@ -1,4 +1,3 @@
-from scrapy.exceptions import DropItem
 from scrapy.spider import BaseSpider
 from scrapy.contrib.spiders import CrawlSpider,Rule
 from scrapy.contrib.linkextractors.sgml import SgmlLinkExtractor
@@ -22,7 +21,7 @@ def parse_urls(self, response):
 	item['pdf_urls']=hxs.select('//a/@href')
 	pdf_urls=hxs.select('//a/@href').extract()
 	for url in pdf_urls :
-		yield Cs229Item(url,callback=self.save_pdf)
+		yield scrapy.Request(url,callback=self.save_pdf)
 
 def save_pdf(self,response):
 	path=self.get_path(item['url'])
