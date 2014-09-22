@@ -1,0 +1,16 @@
+import scrapy
+from scrapy.contrib.pipelines.files import FielPipeline
+from scrapy.exceptions import DropItem
+
+class FilesPipeline(FilesPipeline)
+
+def get_media_requests(self, item, info):
+    for p_urls in item['pdf_urls']:
+        yield scrapy.Request(p_urls)
+
+def item_completed(self, results, item, info):
+    pdf_paths = [x['path'] for ok, x in results if ok]
+    if not pdf_paths:
+        raise DropItem("Item contains no pdfs")
+    item['pdf_paths'] = pdf_paths
+    return item
